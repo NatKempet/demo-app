@@ -334,14 +334,14 @@ const CMUHealthApp = () => {
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} 
-          lg:translate-x-0 fixed lg:static inset-y-0 left-0 w-64 bg-white shadow-lg 
+          lg:translate-x-0 fixed lg:static inset-y-0 left-0 w-64 bg-black shadow-lg 
           z-30 transition-transform duration-300 ease-in-out h-full`}
         >
           <div className="flex items-center justify-between p-4 border-b lg:hidden">
             <h2 className="font-semibold text-gray-900">Navigation</h2>
             <button 
               onClick={() => setSidebarOpen(false)}
-              className="p-2 hover:bg-gray-100 rounded-lg"
+              className="p-2 hover:bg-black-100 rounded-lg"
             >
               <X className="w-5 h-5" />
             </button>
