@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Calendar, Clock, MapPin, Phone, User, Heart, Pill, FileText, Bell, Menu, X, ChevronRight, Star, AlertCircle } from 'lucide-react';
 
 const CMUHealthApp = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [notifications, setNotifications] = useState(3);
+  const [notifications] = useState(3);
+
 
   const upcomingAppointments = [
     { id: 1, type: 'General Checkup', doctor: 'Dr. Sarah Chen', time: '2:00 PM', date: 'Today', location: 'Health Center - Room 201' },
