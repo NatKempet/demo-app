@@ -334,14 +334,14 @@ const CMUHealthApp = () => {
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar */}
         <div className={`${sidebarOpen ? 'translate-x-0' : '-translate-x-full'} 
-          lg:translate-x-0 fixed lg:static inset-y-0 left-0 w-64 bg-black shadow-lg 
+          lg:translate-x-0 fixed lg:static inset-y-0 left-0 w-64 bg-white shadow-lg 
           z-30 transition-transform duration-300 ease-in-out h-full`}
         >
           <div className="flex items-center justify-between p-4 border-b lg:hidden">
             <h2 className="font-semibold text-gray-900">Navigation</h2>
             <button 
               onClick={() => setSidebarOpen(false)}
-              className="p-2 hover:bg-black-100 rounded-lg"
+              className="p-2 hover:bg-gray-100 rounded-lg"
             >
               <X className="w-5 h-5" />
             </button>
@@ -350,18 +350,21 @@ const CMUHealthApp = () => {
 {/* Internal Navigation */}
 <div className="space-y-2">
   {navigation.map((item) => (
-    <button
-      key={item.id}
-      onClick={() => {
-        setActiveTab(item.id);
-        setSidebarOpen(false);
-      }}
-      className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors 
-        bg-purple-500 text-white hover:bg-purple-600`}
-    >
-      <item.icon className="w-5 h-5" />
-      <span className="font-medium">{item.label}</span>
-    </button>
+  <button
+    key={item.id}
+    onClick={() => {
+      setActiveTab(item.id);
+      setSidebarOpen(false);
+    }}
+    className={`w-full flex items-center space-x-3 px-3 py-2 rounded-lg text-left transition-colors
+      ${activeTab === item.id
+        ? 'bg-purple-600 text-white'       // Active: purple bg + white text
+        : 'bg-black text-gray-700 hover:bg-purple-100 hover:text-purple-700' // Inactive: white bg + gray text + hover purple
+      }`}
+  >
+    <item.icon className={`w-5 h-5 ${activeTab === item.id ? 'text-white' : 'text-gray-700'}`} />
+    <span className="font-medium">{item.label}</span>
+  </button>
   ))}
 </div>
 
